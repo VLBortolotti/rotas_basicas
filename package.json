@@ -1,0 +1,23 @@
+{
+  "name": "learning_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "comentarios_desenvolvimento": {
+    "dependencies": "ejs e uma view engine, podemos retirar quando em producao",
+    "licencas": "a licenca ainda nao foi decidida, podemos mudar dps"
+  }
+}
