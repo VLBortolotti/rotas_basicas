@@ -5,32 +5,40 @@ const path = require('path');
 const app = express();
 
 // registering view engines
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // it'll look inside the views folder by default
 
 // listening for requests
 app.listen(3000);
 
 // index
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
-
-// index
-app.get('/index', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    const blogs = [
+        {title: 'blog1', snippet: 'Lorem Ipsum Lorem Ipsum'},
+        {title: 'blog2', snippet: 'Lorem Ipsum Lorem Ipsum'},
+        {title: 'blog3', snippet: 'Lorem Ipsum Lorem Ipsum'}
+    ];
+    res.render('index', { title: 'Home', blogs: blogs });
+    var i = req.url;
+    console.log(i);
 });
 
 // about
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'about.html'));
+    res.render('about', { title: 'About' });
+    var i = req.url;
+    console.log(i);
 });
 
-// login
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
+// create blog
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create' });
+    var i = req.url;
+    console.log(i);
 });
 
-// 404
+// page not found
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.status(404).render('404', { title: '404' });
+    var i = req.url;
+    console.log(i);
 });
